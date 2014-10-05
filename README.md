@@ -17,7 +17,7 @@ jubarecommenderを利用して、レコメンドされた結果を更にjubareco
 以下のパッケージをインストールしてください
 * jubatus
 * ruby
-* junatu ruby client
+* junatus ruby client
 * ruby on rails
 
 ## 動かし方
