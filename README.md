@@ -4,7 +4,7 @@
 のソースコード
 
 ## 仕組み
-jubarecommenderを利用して、レコメンドされた結果を更にjubarecommenderに与えることで
+jubarecommenderを利用して、レコメンドされた結果を更にjubarecommenderに与えるという操作を繰り返すことで
 元のコンテンツに対して少し距離の離れたコンテンツの推薦を行います
 
 このシステムでは[ニコニコデータセット](http://www.nii.ac.jp/cscenter/idr/nico/nico.html)
@@ -21,12 +21,13 @@ jubarecommenderを利用して、レコメンドされた結果を更にjubareco
 * ruby on rails
 
 ## 動かし方
-1. lib/jubatusのconfig.jsonを利用してjubarecommenderを起動します
+lib/jubatusのconfig.jsonを利用してjubarecommenderを起動します
 ```
 $ cd lib/jubatus
 $ jubarecommender -f config.json
 ```
-2. バッチ処理で学習データを作成します  
+
+バッチ処理で学習データを作成します  
 jubatusはオンライン学習を行うため、
 ニコニコ動画であれば動画の投稿やタグの編集にあわせてリアルタイムに学習することが可能ですが、
 今回はシステムを動かすためにモデル構築をバッチ処理的に行っています
@@ -34,19 +35,21 @@ jubatusはオンライン学習を行うため、
 $ cd lib/jubatus
 $ ruby learn_nico.rb
 ```
-3. DBに必要なデータの投入
+
+DBに必要なデータの投入
 動画情報をDataBaseに保持するためにシードとして投入します
 ```
 $ rake db:create
 $ rake db:migrate
 $ rake db:seed
 ```
-4. railsを起動します
+
+railsを起動します
 ```
 $ rails s
 ```
 5. ブラウザから
-http://<hostname>:3000/videos/index  
+http://\<hostname\>:3000/videos/index  
 にアクセスして確認してください
 
 ## 挙動について
