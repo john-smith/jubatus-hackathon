@@ -1,0 +1,10 @@
+<h1><%= link_to "ニートの友達 ~動画編~", {:controller => 'videos', :action => 'index', :page => 1} %></h1>
+<p><%= link_to @title, "http://www.nicovideo.jp/watch/#{@video_id}" %>に関するオススメ(?)動画</p>
+<ul>
+  <% @result.each do |video| %>
+  	<% if video.title != @title %>
+  <li><%= link_to video.title, "http://www.nicovideo.jp/watch/#{video.video_id}" %></li>
+  	<% end %>
+  <% end %>
+</ul>
+<%= link_to "他の動画がいい", {:controller => 'videos', :action => 'index', :page => 1} %>

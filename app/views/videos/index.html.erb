@@ -1,0 +1,13 @@
+<h1>ニートの友達 ~動画編~</h1>
+<form action="#">
+  動画を探す：<input type="text" size="30"><input type="button" value="検索できません">
+</form>
+<ul>
+  <% @videos.each do |video| %>
+  <li><%= link_to video.title, {:controller => 'recommends', :action => 'show', :title => video.title, :video_id => video.video_id} %></li>
+  <% end %>
+</ul>
+<p>
+<%= link_to '< 前', {:action => 'index', :page => @page - 1} %> |
+<%= link_to '次 >', {:action => 'index', :page => @page + 1} %>
+</p>
